@@ -1,0 +1,357 @@
+<!-- <!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1218</title>
+</head>
+<body>
+
+
+
+  D:\Dev>cd fun_javascript
+
+D:\Dev\fun_javascript>git add .
+
+D:\Dev\fun_javascript>git commit -m "1218 new update"
+[main e1bf37d] 1218 new update
+ 3 files changed, 252 insertions(+), 1 deletion(-)
+ create mode 100644 js/todo_1217_done.js
+ create mode 100644 "js\352\270\260\353\263\270_done.html"
+
+D:\Dev\fun_javascript>git push -u origin main
+Username for 'https://github.com': sixsuya
+Password for 'https://sixsuya@github.com':
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 2.22 KiB | 2.22 MiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/sixsuya/fun_javascript.git
+To https://github.com/sixsuya/bad_javascript.git
+   d1cc09d..e1bf37d  main -> main
+branch 'main' set up to track 'origin/main'.
+
+D:\Dev\fun_javascript>git remote -v
+origin  https://github.com/sixsuya/bad_javascript.git (fetch)
+origin  https://github.com/sixsuya/bad_javascript.git (push)
+
+D:\Dev\fun_javascript>git branch
+* main
+
+D:\Dev\fun_javascript>git checkout -b dev
+Switched to a new branch 'dev'
+
+D:\Dev\fun_javascript>git branch
+* dev
+  main
+
+D:\Dev\fun_javascript>git add .
+
+D:\Dev\fun_javascript>git commit -m "branch practice"
+[dev 39dee96] branch practice
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+D:\Dev\fun_javascript>git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+D:\Dev\fun_javascript>git checkout dev
+error: Your local changes to the following files would be overwritten by checkout:
+        index.html
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+D:\Dev\fun_javascript>git checkout dev
+error: Your local changes to the following files would be overwritten by checkout:
+        index.html
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+D:\Dev\fun_javascript>git checkout dev
+error: Your local changes to the following files would be overwritten by checkout:
+        index.html
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+D:\Dev\fun_javascript>git add .
+
+D:\Dev\fun_javascript>git commit -m "1218 new update2"
+[main e950923] 1218 new update2
+ 2 files changed, 13 insertions(+), 2 deletions(-)
+ create mode 100644 dev.html
+
+D:\Dev\fun_javascript>git checkout dev
+Switched to branch 'dev'
+
+D:\Dev\fun_javascript>git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+D:\Dev\fun_javascript>git merge dev
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+D:\Dev\fun_javascript>git checkout main
+index.html: needs merge
+error: you need to resolve your current index first
+
+D:\Dev\fun_javascript>git branch
+  dev
+* main
+
+D:\Dev\fun_javascript>git checkout main
+index.html: needs merge
+error: you need to resolve your current index first
+
+D:\Dev\fun_javascript>git add .
+
+D:\Dev\fun_javascript>git commit -m "1218 new update3"
+[main 174b602] 1218 new update3
+
+D:\Dev\fun_javascript>git checkout main
+Already on 'main'
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+
+
+D:\Dev\fun_javascript>git log
+commit 174b6023ae09c1a41c404b89253c6edce49abbcf (HEAD -> main)
+Merge: e950923 39dee96
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 10:01:12 2025 +0900
+
+    1218 new update3
+
+commit e9509230ac961292442d5bbbd3a5e4bab0f98f4c
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:58:28 2025 +0900
+
+    1218 new update2
+
+commit 39dee968ab9840ac8c069aa2d26f6251bd57a96c (dev)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:55:24 2025 +0900
+
+    branch practice
+
+commit e1bf37d4dc826eb214b7600a2a13bdad46c7736a (origin/main)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:45:43 2025 +0900
+
+    1218 new update
+
+commit d1cc09d156a3563df573ce74026dd3a848d38f64
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Wed Dec 17 18:00:47 2025 +0900
+
+
+D:\Dev\fun_javascript>git log
+commit 174b6023ae09c1a41c404b89253c6edce49abbcf (HEAD -> main)
+Merge: e950923 39dee96
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 10:01:12 2025 +0900
+
+    1218 new update3
+
+commit e9509230ac961292442d5bbbd3a5e4bab0f98f4c
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:58:28 2025 +0900
+
+    1218 new update2
+
+commit 39dee968ab9840ac8c069aa2d26f6251bd57a96c (dev)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:55:24 2025 +0900
+
+    branch practice
+
+commit e1bf37d4dc826eb214b7600a2a13bdad46c7736a (origin/main)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:45:43 2025 +0900
+
+    1218 new update
+
+commit d1cc09d156a3563df573ce74026dd3a848d38f64
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Wed Dec 17 18:00:47 2025 +0900
+
+
+D:\Dev\fun_javascript>git reset --soft
+
+D:\Dev\fun_javascript>git log
+commit 174b6023ae09c1a41c404b89253c6edce49abbcf (HEAD -> main)
+Merge: e950923 39dee96
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 10:01:12 2025 +0900
+
+    1218 new update3
+
+commit e9509230ac961292442d5bbbd3a5e4bab0f98f4c
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:58:28 2025 +0900
+
+    1218 new update2
+
+commit 39dee968ab9840ac8c069aa2d26f6251bd57a96c (dev)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:55:24 2025 +0900
+
+    branch practice
+
+commit e1bf37d4dc826eb214b7600a2a13bdad46c7736a (origin/main)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:45:43 2025 +0900
+
+    1218 new update
+
+commit d1cc09d156a3563df573ce74026dd3a848d38f64
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Wed Dec 17 18:00:47 2025 +0900
+
+
+D:\Dev\fun_javascript>git reset --soft HEAD~1
+
+D:\Dev\fun_javascript>git log
+commit e9509230ac961292442d5bbbd3a5e4bab0f98f4c (HEAD -> main)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:58:28 2025 +0900
+
+    1218 new update2
+
+commit e1bf37d4dc826eb214b7600a2a13bdad46c7736a (origin/main)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:45:43 2025 +0900
+
+    1218 new update
+
+commit d1cc09d156a3563df573ce74026dd3a848d38f64
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Wed Dec 17 18:00:47 2025 +0900
+
+    suya
+
+D:\Dev\fun_javascript>git branch
+  dev
+* main
+
+D:\Dev\fun_javascript>git commit -m "branch test"
+[main be35fec] branch test
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+D:\Dev\fun_javascript>git log
+commit be35fecdc6cb04417980a113cec2ae1a3a392b7e (HEAD -> main)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 10:05:24 2025 +0900
+
+    branch test
+
+commit e9509230ac961292442d5bbbd3a5e4bab0f98f4c
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:58:28 2025 +0900
+
+    1218 new update2
+
+commit e1bf37d4dc826eb214b7600a2a13bdad46c7736a (origin/main)
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Thu Dec 18 09:45:43 2025 +0900
+
+    1218 new update
+
+commit d1cc09d156a3563df573ce74026dd3a848d38f64
+Author: sixsuya <ifyou032@gmail.com>
+Date:   Wed Dec 17 18:00:47 2025 +0900
+
+    suya
+
+D:\Dev\fun_javascript>git reset --hard HEAD~1
+HEAD is now at e950923 1218 new update2
+
+D:\Dev\fun_javascript>git chechout dev
+git: 'chechout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+D:\Dev\fun_javascript>git checkout dev
+Switched to branch 'dev'
+
+D:\Dev\fun_javascript>git branch
+* dev
+  main
+
+D:\Dev\fun_javascript>git push -u origin dev
+Username for 'https://github.com': sixsuya
+Password for 'https://sixsuya@github.com':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 330 bytes | 330.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/sixsuya/fun_javascript.git
+remote:
+remote: Create a pull request for 'dev' on GitHub by visiting:
+remote:      https://github.com/sixsuya/fun_javascript/pull/new/dev
+remote:
+To https://github.com/sixsuya/bad_javascript.git
+ * [new branch]      dev -> dev
+branch 'dev' set up to track 'origin/dev'.
+
+D:\Dev\fun_javascript>git checkout dev
+Already on 'dev'
+Your branch is up to date with 'origin/dev'.
+
+D:\Dev\fun_javascript>git add .
+
+D:\Dev\fun_javascript>git commit -m "branch practice"
+[dev 225fd4f] branch practice
+ 1 file changed, 11 insertions(+)
+ create mode 100644 dev.html
+
+D:\Dev\fun_javascript>git push -u origin branch
+error: src refspec branch does not match any
+error: failed to push some refs to 'https://github.com/sixsuya/bad_javascript.git'
+
+D:\Dev\fun_javascript>git push -u origin dev
+Username for 'https://github.com': sixsuya
+Password for 'https://sixsuya@github.com':
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 455 bytes | 455.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: This repository moved. Please use the new location:
+remote:   https://github.com/sixsuya/fun_javascript.git
+To https://github.com/sixsuya/bad_javascript.git
+   39dee96..225fd4f  dev -> dev
+branch 'dev' set up to track 'origin/dev'.
+
+D:\Dev\fun_javascript>git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+D:\Dev\fun_javascript>git branch
+  dev
+* main
+
+D:\Dev\fun_javascript>git branch -d dev
+warning: deleting branch 'dev' that has been merged to
+         'refs/remotes/origin/dev', but not yet merged to HEAD
+Deleted branch dev (was 225fd4f).
+
+D:\Dev\fun_javascript>
+
+</body>
+</html> -->

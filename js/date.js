@@ -121,49 +121,50 @@
 // let b = today.getDay(n); // 당월 말일의 요일 값
 // console.log(b);
 
-let year = prompt("연도를 입력하시오");
-let month = prompt("달을 입력하시오");
+// let year = prompt("연도를 입력하시오");
+// let month = prompt("달을 입력하시오");
 
-function printCalendar(a, b) {
-  today = new Date();
-  let n = 0;
-  today.setFullYear(a);
-  today.setMonth(b - 1);
-  today.setDate(n + 1);
-  console.log(today);
-  let c = today.getDay(n + 1); // 당월 1일의 요일값
-  console.log(a);
-  today.setMonth(b);
-  today.setDate(n);
-  console.log(today);
-  let d = today.getDay(n); // 당월 말일의 요일 값
-  let e = today.getDate(n); // 당월 말일의 요일 값
-  console.log(b);
+// function printCalendar(a, b) {
+//   today = new Date();
+//   let n = 0;
+//   today.setFullYear(a);
+//   today.setMonth(b - 1);
+//   today.setDate(n + 1);
+//   console.log(today);
+//   let c = today.getDay(n + 1); // 당월 1일의 요일값
+//   console.log(a);
+//   today.setMonth(b);
+//   today.setDate(n);
+//   console.log(today);
+//   let d = today.getDay(n); // 당월 말일의 요일 값
+//   let e = today.getDate(n); // 당월 말일 값
+//   console.log(b);
 
-  const spaces = c; // <= 화요일부터 시작이므로, 앞에 2개 날짜 공백처리 선언
-  const lastDate = e; // <= 끝나는 날짜를 선언
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let htmlStr = `<table border = 2><thead><tr>`;
-  for (let day of days) {
-    htmlStr += `<th> ${day} </th>`;
-  }
-  htmlStr += "</tr></thead><tbody><tr>";
-  //공란 앞쪽에 삽입하기
-  for (let s = 0; s < spaces; s++) {
-    htmlStr += "<td></td>";
-  }
-  for (let d = 1; d <= lastDate; d++) {
-    htmlStr += `<td> ${d} </td>`;
-    if ((d + spaces) % 7 == 0) {
-      //<= 요거를 if (d % 7 == 7 - spaces) {  이렇게 했을때 나는 적용되었음.
-      htmlStr += "</tr><tr>";
-    }
-  }
-  htmlStr += `</tr></tbody></table>`;
-  document.writeln(htmlStr);
-}
-printCalendar(year, month);
+//   const spaces = c; // <= 화요일부터 시작이므로, 앞에 2개 날짜 공백처리 선언
+//   const lastDate = e; // <= 끝나는 날짜를 선언
+//   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+//   let htmlStr = `<table border = 2><caption>${a}년 ${b}월 </caption><thead><tr>`;
+//   for (let day of days) {
+//     htmlStr += `<th> ${day} </th>`;
+//   }
+//   htmlStr += "</tr></thead><tbody><tr>";
+//   //공란 앞쪽에 삽입하기
+//   for (let s = 0; s < spaces; s++) {
+//     htmlStr += "<td></td>";
+//   }
+//   for (let d = 1; d <= lastDate; d++) {
+//     htmlStr += `<td> ${d} </td>`;
+//     if ((d + spaces) % 7 == 0) {
+//       //<= 요거를 if (d % 7 == 7 - spaces) {  이렇게 했을때 나는 적용되었음.
+//       htmlStr += "</tr><tr>";
+//     }
+//   }
+//   htmlStr += `</tr></tbody></table>`;
+//   document.writeln(htmlStr);
+// }
+// printCalendar(year, month);
 
+// 상원씨 작업내용 //
 // function printCalendar1(yyyy, mm) {
 //   // 1일이 화요일, 31일이 마지막 날.
 //   if (mm > 12) {
@@ -218,19 +219,86 @@ printCalendar(year, month);
 // today.setDate(1); // setDate 값이 0이면 전 달 마지막날
 // today.getDay(); // 1일의 요일정보 알 수 있다(공백의 값을 얻을 수 있다.),
 
-// // 객체, 메소드 =>
-//   function printDay(now = new Date()) {    // 매개값이 없을 때를 대비해서 초기값을 설정하는 것
-//     // 콘솔에 요일정보를 출력하는 함수를 완성, return 안해도 됨
-//     switch(now.getDay()) {
-//       case 0: console.log(`일요일`);
-//       break;
-//       case 1: console.log(`월요일`);
-//       break;
-//       case 3: console.log(`수요일`);
-//       break;
-//       default: console.log(`다른요일`);
-//       break;
+// printDay(today);
+
+// 교수님 답안 //
+
+// // 달력생성
+// function printCalendar(yyyy, mm) {
+//   let today = new Date(); // Date객체 선언. 2025년 5월달.
+//   today.setFullYear(yyyy); // 2025.
+//   today.setMonth(mm - 1); // 2025. 5.
+//   today.setDate(1); // 2025. 5. 1
+
+//   // 1일의 요일정보.
+//   const spaces = today.getDay(); // 요일정보.
+
+//   today.setMonth(mm); // 2025. 6.
+//   today.setDate(0); // 2025. 5. 말일.
+
+//   // 월의 마지막날.
+//   const lastDate = today.getDate();
+
+//   // 배열.
+//   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+//   let htmlStr = `<table border='2'><thead><tr>`;
+//   for (let day of days) {
+//     htmlStr += `<th>${day}</th>`;
+//   }
+//   htmlStr += "</tr></thead><tbody><tr>";
+//   // 공란.
+//   for (let s = 0; s < spaces; s++) {
+//     htmlStr += `<td> </td>`;
+//   }
+//   // 날짜.
+//   for (let d = 1; d <= lastDate; d++) {
+//     htmlStr += `<td>${d}</td>`;
+//     if ((d + spaces) % 7 == 0) {
+//       htmlStr += "</tr><tr>";
 //     }
 //   }
+//   htmlStr += `</tr></tbody></table>`;
+//   document.writeln(htmlStr);
+// }
+// printCalendar(2025, 5); // 달력호출.
 
-// printDay(today);
+// 12.23 DOM을 이용한 달력 만들기 예제 //
+
+// 달력생성
+function printCalendar(yyyy, mm) {
+  let today = new Date(); // Date객체 선언. 2025년 5월달.
+  today.setFullYear(yyyy); // 2025.
+  today.setMonth(mm - 1); // 2025. 5.
+  today.setDate(1); // 2025. 5. 1
+
+  // 1일의 요일정보.
+  const spaces = today.getDay(); // 요일정보.
+
+  today.setMonth(mm); // 2025. 6.
+  today.setDate(0); // 2025. 5. 말일.
+
+  // 월의 마지막날.
+  const lastDate = today.getDate();
+
+  // 배열.
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let htmlStr = `<table border='2'><caption>${yyyy}년 ${mm}월 </caption><thead><tr>`;
+  for (let day of days) {
+    htmlStr += `<th>${day}</th>`;
+  }
+  htmlStr += "</tr></thead><tbody><tr>";
+  // 공란.
+  for (let s = 0; s < spaces; s++) {
+    htmlStr += `<td> </td>`;
+  }
+  // 날짜.
+  for (let d = 1; d <= lastDate; d++) {
+    htmlStr += `<td>${d}</td>`;
+    if ((d + spaces) % 7 == 0) {
+      htmlStr += "</tr><tr>";
+    }
+  }
+  htmlStr += `</tr></tbody></table>`;
+  document.querySelector("#calendar").innerHTML = htmlStr;
+}
+printCalendar(year, month); // 달력호출.

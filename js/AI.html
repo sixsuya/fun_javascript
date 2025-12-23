@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="calendar-container">
+      <div class="calendar-header">
+        <button id="prev-month">&lt;</button>
+        <h2 id="current-month-year"></h2>
+        <button id="next-month">&gt;</button>
+      </div>
+      <table id="calendar-table">
+        <thead>
+          <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+          </tr>
+        </thead>
+        <tbody id="calendar-body">
+          <!-- 날짜들이 여기에 JS로 삽입됩니다 -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script>
+    const date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth(); // 0(1월) ~ 11(12월)
+    const calendarBody = document.getElementById("calendar-body");
+    const currentMonthYear = document.getElementById("current-month-year");
+
+    function renderCalendar() {
+      calendarBody.innerHTML = ""; // 이전 내용 초기화
+      // 1. 현재 월의 시작 요일과 마지막 날짜 구하기
+      const firstDay = new Date(year, month, 1).getDay(); // 0(일) ~ 6(토)
+      const lastDate = new Date(year, month + 1, 0).getDate(); // 다음 달 0일 = 현재 달 마지막 날
+
+      currentMonthYear.textContent = `${year}년 ${month + 1}월`; // 월 표시 (month는 0부터 시작하므로 +1)
+
+      let tr = document.createElement("tr");
+
+      // 2. 첫 주 시작 전 빈칸 채우기
+      for (let i = 0; i < firstDay; i++) {
+        let td = document.createElement("td");
+        tr.appendChild(td);
+      }
+
+      // 3. 날짜 채우기
+      for (let i = 1; i <= lastDate; i++) {
+        let td = document.createElement("td");
+        td.textContent = i;
+        // 오늘 날짜 표시
+        if (
+          year === date.getFullYear() &&
+          month === date.getMonth() &&
+          i === date.getDate()
+        ) {
+          td.classList.add("today");
+        }
+        tr.appendChild(td);
+
+        // 토요일(6)이거나 마지막 날짜면 새 행 만들기
+        if ((firstDay + i) % 7 === 0 || i === lastDate) {
+          calendarBody.appendChild(tr);
+          tr = document.createElement("tr");
+        }
+      }
+    }
+
+    // 버튼 이벤트 리스너
+    document.getElementById("prev-month").addEventListener("click", () => {
+      month--;
+      if (month < 0) {
+        year--;
+        month = 11;
+      }
+      renderCalendar();
+    });
+
+    document.getElementById("next-month").addEventListener("click", () => {
+      month++;
+      if (month > 11) {
+        year++;
+        month = 0;
+      }
+      renderCalendar();
+    });
+    renderCalendar();
+  </script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Programming</title>
+    <link rel="stylesheet" href="css/subject.css" />
+    <style>
+      .cancel {
+        text-decoration: line-through;
+        color: gray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Web Programming</h1>
+      <p>공부할 주제를 기록해 보세요</p>
+      <form name="addForm" action="">
+        <label for="subject" class="hidden">주제</label>
+        <input type="text" id="subject" autofocus value="Hello" />
+        <button type="submit">추가</button>
+      </form>
+      <hr />
+      <ul id="itemList">
+        <!-- <li>HTML <button>삭제</button></li> -->
+      </ul>
+    </div>
+    <script>
+      // form에 submit 이벤트를 등록
+      // 이벤트 전파 차단(e.stopPropagaion())
+      // 상위 => 하위 : 캡쳐링 / 하위 => 상위 : 버블링
+      document
+        .querySelector('form[name = "addForm"]') //
+        .addEventListener("submit", (e) => {
+          e.preventDefault(); //submit 차단.
+          let title = document.querySelector("#subject").value; //입력값
+          // 입력값 체크.
+          if (!title) {
+            alert("값을 입력하세요.");
+            return;
+          }
+          let liTag = document.createElement("li"); //<li></li>
+          liTag.innerText = title;
+          liTag.addEventListener(
+            "click",
+            (e) => {
+              console.log(e.target.tagName); //'Button'인지? Li 인지?
+              let target = e.targer;
+              if (e.target.tagName == "BUTTON") {
+                target = e.target.parentElement;
+              }
+              e.stopPropagation(); // 이벤트전파 차단.
+              // 요소의 클래스 목록(classList)
+
+              e.target.classList.toggle("cancel"); // 아래 if 값을 간단히 나타내기 위해 toggle 사용(껏다켯다)
+            },
+            true
+          );
+
+          //   if (e.target.classList.contains("cancel")) {
+          //     // <li class="cancel light standard"></li>
+          //     e.target.classList.remove("cancel"); //'cancel light standard';
+          //   } else {
+          //     e.target.classList.add("cancel");
+          //   }
+          // });
+          //console.log(e.target.classList;)
+          // <button>삭제</button> => delbtn 변수
+          let delbtn = document.createElement("button");
+          delbtn.innerText = "삭제";
+          liTag.appendChild(delbtn);
+          delbtn.addEventListener(
+            "click",
+            (e) => {
+              e.target.parentElement.remove();
+            },
+            true
+          );
+          //ul 선택
+          document.querySelector("#itemList").appendChild(liTag);
+          //초기화
+          document.querySelector("#subject").value = "";
+          document.querySelector("#subject").focus();
+        });
+    </script>
+  </body>
+</html>

@@ -26,11 +26,11 @@
   년도: <input type="number" id="yyyy" value='2025';/>
   <!---->
   월: <input type="number" id="mm" value="12" />
-  <button>이전달</button>  <!----->
-  <button>달력출력</button>
-  <button>다음달</button>
+  <button id="prev">이전달</button>  <!----->
+  <button id="now">달력출력</button>
+  <button id="next">다음달</button>
   <div id="calendar"></div>
-  <script src="/fun_javascript/js/date.js">
+  <script src="/fun_javascript/js/professorjs.js">
     document.querySelector("button").addEventListener("click", (e) => {
       const year = document.querySelector("#yyyy").value;
       const month = document.querySelector("#mm").value;

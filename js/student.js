@@ -101,11 +101,22 @@ function makeTr(student = {}) {
   // <td><button>삭제</button></td>
   let td = document.createElement("td"); //<td></td>
   let delbtn = document.createElement("button"); //  <button></button>
+  // 삭제버튼의 이벤트.
+  delbtn.addEventListener("click", deleteRowFnc); // 짧게 표시하기 위해 함수를 아래로 별도로 뺏음.
   delbtn.innerText = "삭제"; //  <button>삭제</button>
   delbtn.className = "btn btn-danger"; //  <button class='btn btn-danger'>삭제</button>
+  delbtn.setAttribute("data-sno", student.studNo); // <button data-sno="25-001">...</button>
   td.appendChild(delbtn); //<td><button class='btn btn-danger'>삭제</button></td>
   tr.appendChild(td); // <tr>...<td><button class='btn btn-danger'>삭제</button></td></tr>
   //반환
   return tr;
 }
+function deleteRowFnc(e) {
+  console.log(this.dataset.sno); // <-  this가 버튼으로 설정되어 있다.
+  let delNo = this.dataset.sno; // 삭제할 학생번호를 설정
+  students = students.filter((elem) => elem.studNo != delNo); // 조건을 만족하는 배열을 생성(삭제하려는 학생번호 말고 나머지를 생성하겠다는 의미)
+  makeList();
+}
+
 // end of makeTr.
+// * remove로 지우지 않는 이유는 remove로 지우면 화면에서만 지워지고 배열은 남아있기 때문. 나중에는 data를 서버에서 가져올 것이기 때문에 데이터랑 화면 둘다 지우는 방식으로 위와 같이 구현함
